@@ -1,13 +1,11 @@
 from machine import UART
 import time
 
+# for esp 32 using serial 2
 uart = UART(2, 9600)                        
 uart.init(9600, bits=8, parity=None, stop=1)
 
 while(1):
-    #     uart.read(10)       # read 10 characters, returns a bytes object
-    #     uart.read()         # read all available characters
-    #     uart.readline()     # read a line
     data = []
     for i in range(4):
         data.append(uart.read(1))
